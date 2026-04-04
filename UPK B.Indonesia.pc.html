@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="id">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UPK Bahasa Indonesia</title>
+  <style>
+*{box-sizing:border-box;}
+html,body{
+margin:0;
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background:linear-gradient(135deg, #f0f4f8 0%, #e3eef9 50%, #dce7f0 100%);
+overflow-x:hidden;
+min-height:100%;
+}
+
+.header{
+position:fixed;
+top:0;
+width:100%;
+background:linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+color:#fff;
+text-align:center;
+padding:18px 10px;
+z-index:999;
+box-shadow:0 8px 32px rgba(37, 99, 235, 0.3), 0 0 40px rgba(59, 130, 246, 0.25);
+backdrop-filter:blur(10px);
+border-bottom:2px solid rgba(255, 255, 255, 0.2);
+}
+
+.header-content{
+max-width:700px;
+margin:auto;
+}
+
+.logo{
+width:65px;
+height:65px;
+display:block;
+margin:auto;
+border-radius:50%;
+background:rgba(255,255,255,0.2);
+padding:8px;
+border:2px solid rgba(255,255,255,0.3);
+}
+
+.header div:nth-child(2){
+font-size:17px;
+font-weight:700;
+margin-top:8px;
+letter-spacing:0.8px;
+text-shadow:0 2px 8px rgba(0,0,0,0.2);
+}
+
+.header div:nth-child(3){
+font-size:14px;
+opacity:0.95;
+margin-top:2px;
+}
+
+.header div:nth-child(4){
+font-size:12px;
+opacity:0.88;
+letter-spacing:0.5px;
+}
+
+.timer{
+font-size:24px;
+font-weight:900;
+margin-top:10px;
+background:rgba(255, 255, 255, 0.2);
+padding:10px 20px;
+border-radius:25px;
+display:inline-block;
+border:2px solid rgba(255, 255, 255, 0.4);
+box-shadow:0 0 25px rgba(255, 255, 255, 0.3), 0 4px 15px rgba(0,0,0,0.1);
+letter-spacing:1px;
+color:#fff;
+font-weight:900;
+}
+
+body{
+  padding-top:200px;
+}
+
+.container{
+  max-width:720px;
+  margin:auto;
+  padding:20px;
+  margin-top:0;
+  margin-bottom:50px;
+}
+
+section h3{
+font-size:22px;
+font-weight:800;
+color:#fff;
+margin:0 0 25px 0;
+text-transform:uppercase;
+letter-spacing:1.5px;
+text-shadow:0 2px 10px rgba(0,0,0,0.2);
+}
+
+#identitasSection{
+background:rgba(255,255,255,0.98);
+padding:40px;
+border-radius:20px;
+box-shadow:0 20px 60px rgba(0,0,0,0.2);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,0.3);
+}
+
+#identitasSection h3{
+color:#3b82f6;
+margin-bottom:30px;
+}
+
+#identitasSection label{
+display:block;
+color:#555;
+font-weight:600;
+margin-bottom:8px;
+font-size:14px;
+letter-spacing:0.3px;
+}
+
+#identitasSection input{
+width:100%;
+padding:16px;
+margin:0 0 25px 0;
+font-size:16px;
+border:2px solid #e0e7ff;
+border-radius:12px;
+transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+font-family:inherit;
+background:#fafbff;
+}
+
+#identitasSection input:focus{
+outline:none;
+border-color:#3b82f6;
+box-shadow:0 0 0 4px rgba(59, 130, 246, 0.2), 0 0 15px rgba(59, 130, 246, 0.3);
+background:#fff;
+}
+
+#identitasSection input:disabled{
+background:#f0f0f0;
+color:#999;
+}
+
+li{
+margin-bottom:28px;
+line-height:1.8;
+padding:28px;
+background:rgba(255,255,255,0.98);
+border-radius:18px;
+box-shadow:0 10px 35px rgba(0,0,0,0.2), 0 0 20px rgba(59, 130, 246, 0.15);
+transition:all 0.35s cubic-bezier(0.4,0,0.2,1);
+position:relative;
+overflow:hidden;
+border:1px solid rgba(59, 130, 246, 0.2);
+}
+
+li::before{
+content:'';
+position:absolute;
+top:0;left:0;right:0;
+height:4px;
+background:linear-gradient(90deg, #3b82f6, #1e40af, #3b82f6);
+}
+
+li:hover{
+transform:translateY(-5px);
+box-shadow:0 15px 50px rgba(59, 130, 246, 0.25), 0 0 30px rgba(59, 130, 246, 0.2);
+border-color:rgba(59, 130, 246, 0.4);
+}
+
+.question-number{
+font-weight:800;
+color:#3b82f6;
+font-size:16px;
+margin-bottom:8px;
+}
+
+.opsi{
+display:block;
+padding:16px 18px;
+margin:14px 0;
+border:2.5px solid #e0e7ff;
+border-radius:12px;
+background:#fafbff;
+cursor:pointer;
+transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+font-size:15px;
+position:relative;
+font-weight:500;
+color:#333;
+}
+
+.opsi::before{
+content:'';
+position:absolute;
+left:0;top:0;bottom:0;
+width:4px;
+background:transparent;
+transition:all 0.3s ease;
+}
+
+.opsi:hover{
+border-color:#a8d4ff;
+background:#f0f7ff;
+transform:translateX(6px);
+}
+
+.opsi:hover::before{
+background:linear-gradient(180deg, #3b82f6, #1e40af);
+}
+
+.opsi.selected{
+background:linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+color:#fff;
+border-color:#3b82f6;
+box-shadow:0 8px 25px rgba(59, 130, 246, 0.4), 0 0 15px rgba(59, 130, 246, 0.25);
+font-weight:600;
+}
+
+.opsi.selected::before{
+background:#fff;
+width:6px;
+}
+
+textarea,input[type="text"]{
+width:100%;
+padding:16px;
+margin:12px 0 8px 0;
+font-size:15px;
+border:2.5px solid #e0e7ff;
+border-radius:12px;
+font-family:inherit;
+transition:all 0.3s ease;
+resize:vertical;
+background:#fafbff;
+color:#333;
+font-weight:500;
+line-height:1.6;
+}
+
+textarea:focus,input[type="text"]:focus{
+outline:none;
+border-color:#3b82f6;
+box-shadow:0 0 0 4px rgba(59, 130, 246, 0.2), 0 0 15px rgba(59, 130, 246, 0.3);
+background:#fff;
+}
+
+textarea::placeholder,input[type="text"]::placeholder{
+color:#aaa;
+}
+
+button{
+width:100%;
+padding:18px 24px;
+margin:20px 0 12px 0;
+background:linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+color:#fff;
+border:none;
+border-radius:12px;
+font-size:16px;
+font-weight:700;
+cursor:pointer;
+transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+text-transform:uppercase;
+letter-spacing:1px;
+box-shadow:0 8px 25px rgba(59, 130, 246, 0.35), 0 0 20px rgba(59, 130, 246, 0.15);
+position:relative;
+overflow:hidden;
+}
+
+button::before{
+content:'';
+position:absolute;
+top:0;left:-100%;right:0;bottom:0;
+background:rgba(255,255,255,0.1);
+transition:left 0.3s ease;
+}
+
+button:hover::before{
+left:100%;
+}
+
+button:hover:not(:disabled){
+transform:translateY(-3px);
+box-shadow:0 12px 35px rgba(59, 130, 246, 0.5), 0 0 30px rgba(59, 130, 246, 0.3);
+}
+
+button:active:not(:disabled){
+transform:translateY(-1px);
+}
+
+button:disabled{
+opacity:0.6;
+cursor:not-allowed;
+}
+
+.hidden{
+display:none;
+}
+
+section{
+animation:fadeIn 0.5s ease both;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+li{
+animation:slideUp 0.5s ease both;
+}
+
+@keyframes slideUp{
+from{
+opacity:0;
+transform:translateY(15px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@media(max-width:600px){
+.header{padding:15px 10px;}
+.header div:nth-child(2){font-size:15px;}
+.timer{font-size:20px;padding:8px 16px;}
+.container{margin-top:200px;padding:15px;}
+#identitasSection{padding:25px;}
+li{padding:20px;}
+button{padding:16px 20px;font-size:15px;}
+}
+</style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="header">
+   <div class="header-content">
+    <img src="https://i.imgur.com/J1mKppg.png" class="logo">
+    <div>
+     UJIAN PENDIDIKAN KESETARAAN (UPK)
+    </div>
+    <div>
+     PKBM Ristek Nusantara Jaya
+    </div>
+    <div>
+     UPK Bahasa Indonesia
+    </div>
+    <div class="timer" id="timer">
+     90:00
+    </div>
+   </div>
+  </div>
+  <div class="container">
+   <section id="identitasSection">
+    <h3>Data Peserta</h3><label for="nama">Nama Lengkap:</label> <input id="nama"> <button onclick="mulai()">Mulai Ujian</button>
+   </section>
+   <section id="isianSection" class="hidden">
+    <h3>📝 Bagian I: Isian Singkat</h3>
+    <ul id="isianlist"></ul><button onclick="next('pgSection')">Lanjut ke Pilihan Ganda →</button>
+   </section>
+   <section id="pgSection" class="hidden">
+    <h3>✓ Bagian II: Pilihan Ganda</h3>
+    <ul id="pglist"></ul><button onclick="next('uraianSection')">Lanjut ke Uraian →</button> <button onclick="next('isianSection')">← Kembali ke Isian</button>
+   </section>
+   <section id="uraianSection" class="hidden">
+    <h3>📄 Bagian III: Uraian</h3>
+    <ul id="uraianlist"></ul><button onclick="next('pgSection')">← Kembali ke Pilihan Ganda</button> <button onclick="kirim()">✓ Kirim Semua Jawaban</button>
+   </section>
+  </div>
+  <script>
+const MAPEL="BINDO";
+const URL="https://script.google.com/macros/s/AKfycbxM3g6okiRl6T4lY6-oI8_0TnDDHbr1DWvX-9NIhPi7lX42qlRzXNJIZ6LN-9i5DTXF/exec";
+const KEY_DATA="UPK_"+MAPEL+"_DATA";
+const KEY_TIME="UPK_"+MAPEL+"_TIME";
+
+let waktu=0,interval;
+
+/* ================= SOAL ================= */
+let soalIsian=[
+"Dalam menulis surat lamaran pekerjaan, penggunaan bahasa yang _____________ sangat diperlukan agar surat terkesan profesional.",
+"Kata 'implementasi' dalam konteks pendidikan bermakna _____________.",
+"Teks eksplanasi bertujuan untuk _____________ proses terjadinya suatu fenomena.",
+"Sinonim dari kata 'abstrak' adalah _____________.",
+"Paragraf argumentatif biasanya mengandung _____________ yang mendukung pendapat penulis."
+];
+
+let soalPG=[
+["Bacalah kutipan berikut: 'Teknologi digital telah mengubah cara orang berkomunikasi, bekerja, dan belajar. Namun, tantangan terbesar adalah bagaimana memanfaatkan teknologi secara bijak agar tidak menimbulkan dampak negatif.' Pernyataan di atas termasuk jenis paragraf...",["Narasi","Deskripsi","Argumentasi","Persuasi"]],
+["Berikut ini yang merupakan ciri utama teks prosedur adalah...",["Menguraikan langkah-langkah secara berurutan","Mengandung unsur cerita dan tokoh","Menjelaskan peristiwa secara ilmiah","Membujuk pembaca agar melakukan sesuatu"]],
+["Dalam teks pidato, fungsi kalimat pembuka adalah...",["Menyampaikan tujuan pidato","Mengucapkan salam dan sapaan","Memberikan argumen","Menyimpulkan isi pidato"]],
+["Bacalah kalimat berikut: 'Jika semua siswa membuang sampah pada tempatnya, sekolah akan menjadi bersih.' Makna implisit dari kalimat tersebut adalah...",["Siswa tidak peduli kebersihan","Kebersihan sekolah tergantung perilaku siswa","Tempat sampah tidak cukup","Sekolah tidak butuh tempat sampah"]],
+["Kata 'transparan' pada kalimat 'Pemerintah harus bersikap transparan dalam pengelolaan dana publik' berarti...",["Jelas dan terbuka","Tertutup rapat","Berbelit-belit","Sulit dimengerti"]],
+["Cermati teks berikut: 'Siswa SMA Negeri 1 Jakarta berhasil memenangkan lomba debat tingkat nasional.' Kata 'berhasil' dalam kalimat tersebut berfungsi sebagai...",["Kata benda","Kata sifat","Kata kerja","Kata keterangan"]],
+["Bacalah penggalan teks berikut: 'Selain itu, penggunaan kendaraan listrik dapat mengurangi polusi udara.' Ide pokok paragraf di atas adalah...",["Polusi udara meningkat","Kendaraan listrik menambah polusi","Penggunaan kendaraan listrik dapat mengurangi polusi udara","Kendaraan listrik tidak ramah lingkungan"]],
+["Dalam debat, penyampaian sanggahan yang baik harus disertai dengan...",["Emosi tinggi","Bukti dan alasan logis","Nada suara keras","Kata-kata kasar"]],
+["Kalimat efektif di bawah ini adalah...",["Karena hujan deras, sehingga banjir melanda kota","Banjir melanda kota karena hujan deras","Banjir karena hujan deras melanda kota","Karena banjir, hujan deras melanda kota"]],
+["Sinonim kata 'konklusi' adalah...",["Penjelasan","Kesimpulan","Perbandingan","Penyangkalan"]],
+["Dalam cerpen, konflik berfungsi untuk...",["Membuat cerita semakin menarik","Mengulang kejadian","Menjelaskan latar","Menambah jumlah tokoh"]],
+["Bacalah kalimat berikut: 'Dia membaca buku dengan sungguh-sungguh.' Kata yang berfungsi sebagai keterangan cara pada kalimat di atas adalah...",["Dia","Membaca","Buku","Sungguh-sungguh"]],
+["Teks negosiasi biasanya berisi tentang...",["Penyelesaian masalah bersama","Perdebatan tanpa akhir","Pengutaraan perasaan","Penjelasan ilmiah"]],
+["Bacalah kutipan berikut: 'Masyarakat harus sadar pentingnya penggunaan masker di masa pandemi.' Kata 'harus' pada kalimat tersebut bermakna...",["Anjuran","Larangan","Keinginan","Kewajiban"]],
+["Paragraf deduktif adalah paragraf yang...",["Ide pokoknya terletak di akhir paragraf","Ide pokoknya tersebar di seluruh paragraf","Ide pokoknya di awal paragraf","Tidak memiliki ide pokok"]],
+["Kata baku dari 'analisa' adalah...",["Analisa","Analisis","Menganalisa","Analisisan"]],
+["Teks eksposisi bertujuan untuk...",["Mempengaruhi pembaca","Menjelaskan informasi","Menghibur pembaca","Menyampaikan cerita"]],
+["Kalimat yang menggunakan majas personifikasi adalah...",["Matahari terbenam di ufuk barat","Angin berbisik lembut di telingaku","Air sungai mengalir deras","Langit berwarna biru cerah"]],
+["Dalam surat dinas, hal yang tidak boleh dilupakan adalah...",["Salam penutup","Nama penerima","Alamat pengirim","Tanda tangan"]],
+["Bacalah kalimat berikut: 'Para siswa diharapkan dapat meningkatkan literasi digital.' Kata 'literasi digital' bermakna...",["Kemampuan membaca buku fisik","Kemampuan menggunakan teknologi informasi","Belajar menulis tangan","Membaca novel daring"]],
+["Dalam cerpen, sudut pandang orang ketiga serba tahu berarti...",["Penulis sebagai tokoh utama","Narator mengetahui segala hal tentang tokoh","Cerita dari sudut pandang 'aku'","Tokoh menceritakan dirinya sendiri"]],
+["Kalimat berikut yang termasuk kalimat pasif adalah...",["Siswa membaca buku di perpustakaan","Buku itu dibaca oleh siswa","Guru menjelaskan materi pelajaran","Teman-teman bermain bola"]],
+["Bacalah kutipan berikut: 'Sampah plastik menimbulkan kerusakan lingkungan yang serius.' Kata 'menimbulkan' pada kalimat tersebut bermakna...",["Mengurangi","Membuat munculnya","Menghilangkan","Mengolah"]],
+["Dalam teks laporan hasil observasi, bagian pernyataan umum berisi tentang...",["Ciri-ciri khusus objek","Proses terjadinya objek","Penjelasan umum tentang objek","Hasil eksperimen"]],
+["Bacalah kalimat berikut: 'Karena tidak belajar, hasil ujian Rina kurang memuaskan.' Klausa sebab pada kalimat tersebut adalah...",["Karena tidak belajar","Hasil ujian Rina kurang memuaskan","Karena hasil ujian","Rina kurang memuaskan"]],
+["Kata 'implementasi' dalam kalimat 'Pemerintah mulai implementasi program kesehatan' berarti...",["Penolakan","Penundaan","Pelaksanaan","Penyempurnaan"]],
+["Bacalah penggalan teks berikut: 'Dengan membaca buku, wawasan kita akan bertambah.' Hubungan antar kalimat di atas adalah...",["Sebab-akibat","Perbandingan","Pertentangan","Penegasan"]],
+["Dalam menulis teks eksplanasi, penggunaan data ilmiah bertujuan untuk...",["Menghibur pembaca","Memperkuat penjelasan","Mengulang informasi","Menambah paragraf"]],
+["Sinonim kata 'urgensi' adalah...",["Kepentingan","Keraguan","Kebaikan","Keuntungan"]],
+["Bacalah kalimat berikut: 'Siswa itu rajin, tetapi nilainya tetap rendah.' Hubungan antar kalimat di atas adalah hubungan...",["Sebab-akibat","Pertentangan","Penegasan","Perbandingan"]],
+["Kata 'kreatif' berkaitan dengan kemampuan untuk...",["Mengikuti perintah","Meniru karya orang lain","Membuat sesuatu yang baru","Mengulang informasi"]],
+["Dalam membuat teks laporan, bagian simpulan berfungsi untuk...",["Merangkum hasil pengamatan","Memperpanjang laporan","Memperkenalkan objek","Menambah data baru"]],
+["Bacalah teks berikut: 'Banjir yang melanda kota tersebut disebabkan oleh buruknya sistem drainase.' Ide utama kalimat di atas adalah...",["Buruknya sistem drainase","Kota yang terkena banjir","Banjir disebabkan oleh sesuatu","Sistem drainase yang baik"]],
+["Kata baku dari 'praktek' adalah...",["Praktek","Praktik","Praktekan","Praktikan"]],
+["Bacalah kalimat berikut: 'Setelah rapat selesai, para peserta pulang ke rumah masing-masing.' Kata 'selesai' dalam kalimat tersebut berfungsi sebagai...",["Kata benda","Kata kerja","Kata sifat","Kata bilangan"]],
+["Dalam diskusi, moderator bertugas untuk...",["Membuat kesimpulan akhir","Menyampaikan pendapat pribadi","Mengatur jalannya diskusi","Menulis notulen"]],
+["Kalimat berikut yang mengandung makna konotatif adalah...",["Ayah bekerja di kantor","Hatiku berbunga-bunga saat bertemu sahabat","Ibu memasak di dapur","Kakak membaca buku"]],
+["Dalam teks persuasi, tujuan utamanya adalah...",["Meyakinkan pembaca agar melakukan sesuatu","Menjelaskan proses","Menghibur pembaca","Menguraikan data"]],
+["Bacalah kutipan berikut: 'Pendidikan karakter sangat penting untuk membentuk generasi bangsa yang berintegritas.' Ide pokok kalimat di atas adalah...",["Pendidikan karakter penting","Generasi bangsa berintegritas","Pendidikan karakter membentuk generasi bangsa","Integritas bangsa"]],
+["Kata 'efektif' dalam konteks pembelajaran berarti...",["Cepat selesai","Sesuai tujuan dan hasilnya optimal","Banyak materi","Sulit dipahami"]],
+["Bacalah kalimat berikut: 'Para siswa berpartisipasi aktif dalam kegiatan bakti sosial.' Kata 'berpartisipasi' berarti...",["Menonton acara","Ikut serta dalam kegiatan","Menyusun acara","Mengawasi kegiatan"]],
+["Dalam menulis teks ulasan film, bagian yang berisi penilaian terhadap film disebut...",["Orientasi","Tafsiran","Evaluasi","Koda"]],
+["Kata 'mencerminkan' pada kalimat 'Sikap jujur mencerminkan kepribadian baik' bermakna...",["Menyembunyikan","Menunjukkan","Menghilangkan","Menutupi"]],
+["Bacalah kutipan berikut: 'Pemerintah mengimbau masyarakat untuk tidak mudah percaya pada berita hoaks.' Kata 'hoaks' berarti...",["Informasi benar","Informasi palsu","Informasi lengkap","Informasi resmi"]],
+["Dalam teks diskusi, bagian yang memuat permasalahan disebut...",["Argumen","Isu","Kesimpulan","Saran"]]
+];
+
+let soalUraian=[
+"Jelaskan perbedaan utama antara teks eksposisi dan teks argumentasi beserta contohnya!",
+"Analisis pentingnya penggunaan bahasa Indonesia yang baik dan benar di era digital!",
+"Analisis fenomena siswa lebih suka video pembelajaran!",
+"Buat paragraf argumentatif tentang literasi digital!",
+"Jelaskan langkah-langkah membuat pidato efektif!"
+];
+
+/* ================= RENDER ================= */
+function render(){
+soalIsian.forEach((s,i)=>{
+isianlist.innerHTML+=`<li><span class="question-number">Soal ${i+1}</span><div>${s}</div><textarea id="isian${i}" placeholder="Tulis jawaban Anda di sini..."></textarea></li>`;
+});
+soalPG.forEach((s,i)=>{
+let html=`<li><span class="question-number">Soal ${i+1}</span><div>${s[0]}</div>`;
+s[1].forEach((o,j)=>{
+let h=["A","B","C","D"][j];
+html+=`<div class="opsi" data-name="q${i}" data-value="${h}">${h}. ${o}</div>`;
+});
+html+=`</li>`;
+pglist.innerHTML+=html;
+});
+soalUraian.forEach((s,i)=>{
+uraianlist.innerHTML+=`<li><span class="question-number">Soal ${i+1}</span><div>${s}</div><textarea id="uraian${i}" placeholder="Tulis jawaban Anda secara lengkap..."></textarea></li>`;
+});
+}
+
+/* ================= VALIDASI ================= */
+function next(id){
+
+if(id==="pgSection"){
+for(let i=0;i<soalIsian.length;i++){
+let el=document.getElementById("isian"+i);
+if(!el.value.trim()){
+alert("❌ Isi semua jawaban di bagian ISIAN!");
+el.scrollIntoView({behavior:'smooth', block:'center'});
+return;
+}
+}
+}
+
+if(id==="uraianSection"){
+for(let i=0;i<soalPG.length;i++){
+if(!document.querySelector(`.opsi.selected[data-name="q${i}"]`)){
+alert("❌ Jawab semua soal PILIHAN GANDA!");
+document.querySelector(`[data-name="q${i}"]`).scrollIntoView({behavior:'smooth', block:'center'});
+return;
+}
+}
+}
+
+document.querySelectorAll("section").forEach(s=>s.classList.add("hidden"));
+document.getElementById(id).classList.remove("hidden");
+}
+
+/* ================= MULAI ================= */
+function mulai(){
+
+if(!nama.value.trim()){
+alert("❌ Nama wajib diisi!");
+nama.focus();
+return;
+}
+
+simpan();
+
+document.querySelectorAll("section").forEach(s=>s.classList.add("hidden"));
+document.getElementById("isianSection").classList.remove("hidden");
+
+waktu=localStorage.getItem(KEY_TIME)||5400;
+
+interval=setInterval(()=>{
+waktu--;
+localStorage.setItem(KEY_TIME,waktu);
+
+let m=Math.floor(waktu/60),s=waktu%60;
+timer.innerHTML=(m<10?"0":"")+m+":"+(s<10?"0":"")+s;
+
+if(waktu<=0){
+alert("⏰ Waktu habis!");
+kirim();
+}
+},1000);
+}
+
+/* ================= SIMPAN ================= */
+function simpan(){
+let data={nama:nama.value,isian:[],pg:[],uraian:[]};
+
+soalIsian.forEach((_,i)=>data.isian.push(document.getElementById("isian"+i).value));
+soalPG.forEach((_,i)=>{
+let p=document.querySelector(`.opsi.selected[data-name="q${i}"]`);
+data.pg.push(p?p.dataset.value:"");
+});
+soalUraian.forEach((_,i)=>data.uraian.push(document.getElementById("uraian"+i).value));
+
+localStorage.setItem(KEY_DATA,JSON.stringify(data));
+}
+
+document.addEventListener("input",simpan);
+
+document.addEventListener("click",e=>{
+if(e.target.classList.contains("opsi")){
+let name=e.target.dataset.name;
+document.querySelectorAll(`[data-name="${name}"]`).forEach(el=>el.classList.remove("selected"));
+e.target.classList.add("selected");
+simpan();
+}
+});
+
+/* ================= LOAD ================= */
+function loadData(){
+let data=JSON.parse(localStorage.getItem(KEY_DATA)||"{}");
+
+if(data.nama){
+nama.value=data.nama;
+nama.disabled=true;
+}
+
+if(data.isian){
+data.isian.forEach((v,i)=>{
+let el=document.getElementById("isian"+i);
+if(el) el.value=v;
+});
+}
+
+if(data.pg){
+data.pg.forEach((v,i)=>{
+if(v){
+let el=document.querySelector(`.opsi[data-name="q${i}"][data-value="${v}"]`);
+if(el) el.classList.add("selected");
+}
+});
+}
+
+if(data.uraian){
+data.uraian.forEach((v,i)=>{
+let el=document.getElementById("uraian"+i);
+if(el) el.value=v;
+});
+}
+}
+
+/* ================= KIRIM ================= */
+function kirim(){
+
+if(!nama.value.trim()){
+alert("❌ Nama belum diisi!");
+return;
+}
+
+for(let i=0;i<soalUraian.length;i++){
+if(!document.getElementById("uraian"+i).value.trim()){
+alert("❌ Isi semua jawaban di bagian URAIAN!");
+return;
+}
+}
+
+let data={
+nama:nama.value,
+mapel:MAPEL,
+isian:[],
+pg:[],
+uraian:[]
+};
+
+soalIsian.forEach((_,i)=>{
+data.isian.push(document.getElementById("isian"+i).value);
+});
+
+soalPG.forEach((_,i)=>{
+let p=document.querySelector(`.opsi.selected[data-name="q${i}"]`);
+data.pg.push(p?p.dataset.value:"");
+});
+
+soalUraian.forEach((_,i)=>{
+data.uraian.push(document.getElementById("uraian"+i).value);
+});
+
+fetch(URL,{ 
+  method:"POST",
+  body:JSON.stringify(data)
+})
+.then(r=>r.text())
+.then(t=>{
+alert("✅ Server: "+t);
+
+localStorage.removeItem(KEY_DATA);
+localStorage.removeItem(KEY_TIME);
+})
+.catch(err=>{
+alert("❌ Error: "+err);
+});
+}
+
+/* ================= INIT ================= */
+window.onload=function(){
+render();
+loadData();
+if(localStorage.getItem(KEY_DATA)){
+let data=JSON.parse(localStorage.getItem(KEY_DATA));
+if(data.nama){
+nama.value=data.nama;
+nama.disabled=true;
+
+document.querySelector("#identitasSection button").innerText="Lanjutkan Ujian";
+}
+}
+};
+</script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e6854a9d2a96cfa',t:'MTc3NTIyMjAwNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
