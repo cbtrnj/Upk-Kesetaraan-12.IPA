@@ -503,6 +503,9 @@ document.getElementById(id).classList.remove("hidden");
 
 /* ================= MULAI ================= */
 function mulai(){
+ // 🔥 RESET DATA PESERTA SEBELUM MULAI
+localStorage.removeItem(KEY_DATA);
+localStorage.removeItem(KEY_TIME);
 
 if(!nama.value.trim()){
 alert("❌ Nama wajib diisi!");
