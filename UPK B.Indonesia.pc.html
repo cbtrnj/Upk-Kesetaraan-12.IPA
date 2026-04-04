@@ -392,8 +392,14 @@ const URL="https://script.google.com/macros/s/AKfycbxM3g6okiRl6T4lY6-oI8_0TnDDHb
 const KEY_DATA="UPK_"+MAPEL+"_DATA";
 const KEY_TIME="UPK_"+MAPEL+"_TIME";
 
-let waktu=0,interval;
+   const CURRENT_MAPEL_KEY = "CURRENT_MAPEL";
 
+if(localStorage.getItem(CURRENT_MAPEL_KEY) !== MAPEL){
+  localStorage.clear();
+  localStorage.setItem(CURRENT_MAPEL_KEY, MAPEL);
+}
+let waktu=0,interval;
+   
 /* ================= SOAL ================= */
 let soalIsian=[
 "Dalam menulis surat lamaran pekerjaan, penggunaan bahasa yang _____________ sangat diperlukan agar surat terkesan profesional.",
